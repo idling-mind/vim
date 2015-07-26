@@ -18,7 +18,7 @@ set title
 
 " Show tab and space characters
 set list
-set listchars=tab:?\ ,eol:¬
+set listchars=tab:?\ ,eol:Â¬
 
 " Automatical indentation
 set smartindent
