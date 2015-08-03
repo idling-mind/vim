@@ -1,5 +1,5 @@
 " .vimrc file
-" Maintainer: najeem.muhammed@gknaerospace.com
+" Maintainer: idling-mind
 
 "{{{ Plugin Settings -----------------------------------------------------
 set nocompatible              " be iMproved, required
@@ -23,6 +23,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'idling-mind/vim-color-subtle'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
