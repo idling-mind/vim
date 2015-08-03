@@ -1,7 +1,41 @@
 " .vimrc file
 " Maintainer: najeem.muhammed@gknaerospace.com
-" Original file from : dimitrios.kiousis@volvo.com
 
+"{{{ Plugin Settings -----------------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'itchyny/lightline.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'terryma/vim-multiple-cursors'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" lightline settings
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+"}}} ---------------------------------------------------------------------
+"
+"{{{ Set commands --------------------------------------------------------
 " Disabling compatibility with Vi
 set nocompatible
 " Enablilng mouse in all modes
@@ -59,6 +93,38 @@ set showcmd
 " Search as you type
 set incsearch
 
+" Dont move the cursor to start of the line
+set nostartofline
+" Error bells are displayed visually
+set visualbell
+
+" Turn on line numbers
+set number
+set nowrap
+
+" Show matching brackets
+set showmatch
+
+" Setting filetype plugin on such that omni complete can work
+filetype plugin on
+
+set cursorline
+set cursorcolumn
+
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set guifont=Monospace\ 12
+else
+    set t_Co=256 
+endif
+
+colors subtle
+"}}} ---------------------------------------------------------------------
+"{{{ Keyboard Mappings ---------------------------------------------------
+"
 " Keyboard Mappings
     " Leader key set to comma
     let g:mapleader=','
@@ -100,50 +166,9 @@ set incsearch
     vnoremap <Leader>' "zdi'<C-R>z'<ESC>
     vnoremap <Leader>" "zdi"<C-R>z"<ESC>
 
-
-" Dont move the cursor to start of the line
-set nostartofline
-" Error bells are displayed visually
-set visualbell
-
-" Turn on line numbers
-set number
-set nowrap
-
-" Show matching brackets
-set showmatch
-
-" Setting filetype plugin on such that omni complete can work
-filetype plugin on
-
-" APDL filetype
-au BufNewFile,BufRead *.ans set ft=apdl
-au BufNewFile,BufRead *.mac set ft=apdl
-au FileType apdl set syntax=apdl
-
-" Highlight current line and column
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline
-set cursorcolumn
-
-if has('gui_running')
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
-    set guifont=Monospace\ 12
-    "colors my 
-    colors subtle
-else
-    " Color scheme
-    set t_Co=256 
-    "colors xoria256
-    "colors wombat256mod
-    "colors devbox-dark-256
-    "colors my 
-    colors subtle256
-endif
+"}}} ---------------------------------------------------------------------
+"
+"{{{ Custom Functions ----------------------------------------------------
 
 " Function to enable smart tab completion
 " Press tab in insert mode to do a completion
@@ -169,31 +194,23 @@ function! Smart_TabComplete()
 endfunction
 " Keyboard mapping to do the tab completion
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-" Test function for User complete function
-fun! CompleteMonths(findstart, base)
-  if a:findstart
-    " locate the start of the word
-    let line = getline('.')
-    let start = col('.') - 1
-    while start > 0 && line[start - 1] =~ '\a'
-      let start -= 1
-    endwhile
-    return start
-  else
-    " find months matching with "a:base"
-    let res = []
-    let cmdfile='/home/yy53393/.vim/MyScripts/AnsCmd.vim'
-    for m in readfile(cmdfile) 
-      if m =~ '^' . a:base
-    call add(res, m)
-      endif
-    endfor
-    return res
-  endif
-endfun
-set completefunc=CompleteMonths
-
 " Custom Commands
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
+
+"}}} ---------------------------------------------------------------------
+
+"{{{ Auto Commands --------------------------------------------------------
+" APDL filetype
+au BufNewFile,BufRead *.ans set ft=apdl
+au BufNewFile,BufRead *.mac set ft=apdl
+au FileType apdl set syntax=apdl
+
+" Highlight current line and column
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+
+" Highlight 75th column for vimrc file
+au BufRead .vimrc set colorcolumn=75 | hi ColorColumn ctermbg=240
+"}}} ---------------------------------------------------------------------

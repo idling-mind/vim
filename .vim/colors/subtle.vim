@@ -50,12 +50,13 @@ hi DiffText     guifg=black          guibg=hotpink1  gui=none
 hi DiffDelete   guibg=gray45         guifg=black     gui=none
 hi CursorLine   guibg=gray25   cterm=NONE           ctermfg=NONE   ctermbg=238
 hi CursorColumn guibg=gray25   cterm=NONE           ctermfg=NONE   ctermbg=238
+hi ColorColumn  guibg=gray25   cterm=NONE           ctermfg=NONE   ctermbg=238
 
 
 
 " syntax highlighting groups
 "hi Comment      guifg=PaleGreen3     gui=italic   cterm=NONE           ctermfg=242    ctermbg=NONE
-hi Comment      guifg=#666666     gui=none
+hi Comment      guifg=#666666     gui=none  cterm=NONE           ctermfg=242    ctermbg=NONE
 hi String       guifg=#d78787   cterm=NONE           ctermfg=174    ctermbg=NONE
 hi Constant     guifg=#af5fd7         gui=none   cterm=NONE           ctermfg=134    ctermbg=NONE
 hi Identifier   guifg=#af5f5f        gui=none   cterm=NONE           ctermfg=131    ctermbg=NONE
