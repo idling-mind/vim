@@ -124,6 +124,7 @@ endif
 
 colors subtle
 "}}} ---------------------------------------------------------------------
+"
 "{{{ Keyboard Mappings ---------------------------------------------------
 "
 " Keyboard Mappings
@@ -201,7 +202,7 @@ command! -nargs=1 Silent
 \ | execute ':redraw!'
 
 "}}} ---------------------------------------------------------------------
-
+"
 "{{{ Auto Commands --------------------------------------------------------
 " APDL filetype
 au BufNewFile,BufRead *.ans set ft=apdl
@@ -214,4 +215,5 @@ au WinEnter * set cursorline cursorcolumn
 
 " Highlight 75th column for vimrc file
 au BufRead .vimrc set colorcolumn=75 | hi ColorColumn ctermbg=240
+au BufRead .vimrc set foldmethod=marker
 "}}} ---------------------------------------------------------------------
