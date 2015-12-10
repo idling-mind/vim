@@ -24,6 +24,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'idling-mind/vim-color-subtle'
+Plugin 'tpope/vim-commentary'
+Plugin 'joshdick/onedark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,6 +125,7 @@ else
 endif
 
 colors subtle
+" colors onedark
 "}}} ---------------------------------------------------------------------
 "
 "{{{ Keyboard Mappings ---------------------------------------------------
@@ -144,7 +147,7 @@ colors subtle
     " Mapping to open NERDTree
     nnoremap <Leader>e :NERDTreeToggle<CR>
     " Mapping to open vimrc
-    nnoremap <Leader>vrc :e ~/.vimrc
+    nnoremap <Leader>vrc :e ~/.vimrc<CR>
     " Mapping to open new tab
     nnoremap <Leader>t :tabnew<CR>
     " Mapping to put current name
@@ -213,7 +216,8 @@ au FileType apdl set syntax=apdl
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 
-" Highlight 75th column for vimrc file
-au BufRead .vimrc set colorcolumn=75 | hi ColorColumn ctermbg=240
+" .vimrc specific changes
+au BufRead .vimrc set colorcolumn=80 | hi ColorColumn ctermbg=240
 au BufRead .vimrc set foldmethod=marker
+au BufWrite .vimrc source %
 "}}} ---------------------------------------------------------------------
