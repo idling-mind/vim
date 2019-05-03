@@ -8,18 +8,12 @@ If its a cygwin set up use the following command to create native symlinks
 ```
 export CYGWIN="winsymlinks:native"
 ```
-Now create symlinks to the .vim folder and .vimrc files
+Give run access to `install.sh` file and run it.
 ```
-# Use absolute paths as linux creates problems with relative paths in links at times
-ln -sv /path/to/folder/vim/.vim /home/xxx/
-ln -sv /path/to/folder/vim/.vimrc /home/xxx/
+chmod +x install.sh
+./install.sh
 ```
-Download Vundle
-```
-cd ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git
-```
-Install Plugins using Vundle PluginInstall
+Once it's done, open vim and run the following.
 ```
 :PluginInstall
 ```
