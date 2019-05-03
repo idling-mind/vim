@@ -10,12 +10,14 @@ export CYGWIN="winsymlinks:native"
 ```
 Now create symlinks to the .vim folder and .vimrc files
 ```
-ln -sv vim/.vim ~/
-ln -sv vim/.vimrc ~/
+# Use absolute paths as linux creates problems with relative paths in links at times
+ln -sv /path/to/folder/vim/.vim /home/xxx/
+ln -sv /path/to/folder/vim/.vimrc /home/xxx/
 ```
 Download Vundle
 ```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/
+cd ~/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git
 ```
 Install Plugins using Vundle PluginInstall
 ```
