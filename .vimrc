@@ -24,8 +24,10 @@ Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'idling-mind/vim-color-subtle'
+Plugin 'idling-mind/vim-ansys-syntax'
 Plugin 'tpope/vim-commentary'
 Plugin 'joshdick/onedark.vim'
+Plugin 'lrvick/Conque-Shell'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -148,6 +150,9 @@ colors subtle
     nnoremap <Leader>e :NERDTreeToggle<CR>
     " Mapping to open vimrc
     nnoremap <Leader>vrc :e ~/.vimrc<CR>
+    " Toggling mouse
+    nnoremap <Leader>m :set mouse=<CR>
+    nnoremap <Leader>ma :set mouse=a<CR>
     " Mapping to open new tab
     nnoremap <Leader>t :tabnew<CR>
     " Mapping to put current name
