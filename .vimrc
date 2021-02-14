@@ -28,6 +28,7 @@ Plugin 'idling-mind/vim-ansys-syntax'
 Plugin 'tpope/vim-commentary'
 Plugin 'joshdick/onedark.vim'
 Plugin 'lrvick/Conque-Shell'
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
